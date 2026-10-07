@@ -1,0 +1,25 @@
+# SkipSight settings. This is the ONLY file you should edit to run the project on your own data.
+# Put your Spotify "Extended streaming history" files (Streaming_History_Audio_*.json) in data/input/,
+# then run:  python run_pipeline.py
+
+listener:
+  birth_year: 2006            # used for the nostalgia feature (age when a song came out)
+  timezone: Europe/Brussels   # Spotify timestamps are UTC; hour-of-day features use this zone
+
+paths:
+  input: data/input           # raw Spotify JSON files (private, never committed)
+  interim: data/interim       # intermediate tables made by the pipeline
+  cache: data/cache           # API answers, so re-runs don't call the APIs again
+  output: data/output         # final tables used by the analysis notebooks and models
+
+skip_label:
+  # A play counts as a SKIP when the user ended it (one of these reason_end values)
+  user_end_reasons: [fwdbtn, backbtn, endplay]
+  # ...and it stopped "well before the end": less than this share of the song was played
+  max_fraction_played: 0.90
+  # ...and more than this many seconds were still left (protects short songs / outros)
+  min_seconds_left: 15
+
+sessions:
+  # A new listening session starts after this many minutes of silence
+  gap_minutes: 30

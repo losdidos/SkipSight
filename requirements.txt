@@ -1,9 +1,7 @@
-pandas>=2.2
-
-matplotlib>=3.8
-scipy>=1.11
-scikit-learn>=1.4
-tabulate>=0.9
-librosa
-soundfile
-requests
+# Pinned versions so the project installs the same way on every computer (Python 3.13).
+# New packages are added (pinned) when a phase needs them.
+numpy==2.5.3
+pandas==3.0.6
+matplotlib==3.11.2
+PyYAML==6.0.3
+requests==2.34.2
