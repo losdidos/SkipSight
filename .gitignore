@@ -1,0 +1,13 @@
+# Private Spotify export and generated personal data
+/spotify_history.csv
+/spotify_history_full.csv
+/Streaming_History_Audio_*.json
+/data/
+/models/
+/reports/
+
+# Local credentials and Python artifacts
+.env
+.venv/
+__pycache__/
+*.py[cod]
